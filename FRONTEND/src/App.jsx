@@ -179,7 +179,7 @@ function App() {
         alert(response.data.explanation) ; 
       }
     } catch (error) {
-      console.log(`ERROR: ${err.message}`) ; 
+      alert(`ERROR: ${err.message}`) ; 
     }
   }
 
