@@ -67,7 +67,7 @@ function App() {
       }
       else{
         try {
-          const response = await axios.get("http://localhost:5500/verify", {
+          const response = await axios.get("https://weather-app-backend-ashen-gamma.vercel.app/verify", {
             headers: {Authorization:`Bearer ${token}`},
           });
           if(response.data.valid){
@@ -96,7 +96,7 @@ function App() {
      e.preventDefault();
      const obj = { city };
      try {
-       const response = await axios.post("http://localhost:5500/get", obj);
+       const response = await axios.post("https://weather-app-backend-ashen-gamma.vercel.app/get", obj);
        if (response.data) {
          const { current, forecast } = response.data;
  
@@ -143,7 +143,7 @@ function App() {
     e.preventDefault() ; 
     const obj = {name,email,password} ; 
     try {
-      const response = await axios.post("http://localhost:5500/signup", obj);
+      const response = await axios.post("https://weather-app-backend-ashen-gamma.vercel.app/signup", obj);
       if(response.data.bool){
         // alert box : 
         alert("USER CREATED SUCCESSFULLY ! PLEASE LOGIN");
@@ -164,7 +164,7 @@ function App() {
     e.preventDefault() ; 
     const obj = {email:email_L,password:password_L} ; 
     try {
-      const response = await axios.post("http://localhost:5500/login", obj) ; 
+      const response = await axios.post("https://weather-app-backend-ashen-gamma.vercel.app/login", obj) ; 
       if(response.data.bool){
         alert(response.data.explanation) ; 
         // create token in frontend IN LOCALSTORAGE : 
@@ -186,7 +186,7 @@ function App() {
   // LOGOUT 
   const handleLogout = async (e) => {
     try {
-      axios.post("http://localhost:5500/logout", {}, {
+      axios.post("https://weather-app-backend-ashen-gamma.vercel.app/logout", {}, {
         headers: {
           Authorization : `Bearer ${JSON.parse(localStorage.getItem('login'))?.token}`
         }
